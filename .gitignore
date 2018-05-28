@@ -1,0 +1,54 @@
+#################
+## Misc
+#################
+**/.DS_Store
+nbproject
+manifest.mf
+build.xml
+node_modules/*
+npm-debug.log
+coverage
+*.js
+!test-config.js
+!karma.conf.js
+!rollup.config.js
+!karma-test-shim.js
+*.map
+*.d.ts
+!make.js
+!bundles/*.js
+typings
+
+#################
+## JetBrains
+#################
+.idea
+.project
+.settings
+.idea/*
+*.iml
+
+############
+## Windows
+############
+
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+############
+## Mac
+############
+
+# Mac crap
+.DS_Store
+
+### Custom
+
+*.log
+*.tgz
+examples/node_modules/
+dist/
+coverage/
