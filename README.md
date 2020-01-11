@@ -24,37 +24,32 @@ Add following to `project.config.ts`
 
 ```ts
 let additionalPackages: ExtendPackages[] = [
-      {
-        name: 'google-libphonenumber',
-        path: 'node_modules/google-libphonenumber/dist/libphonenumber.js'
-      },
-      {
-        name: 'ngx-phone-validators',
-        path: 'node_modules/ngx-phone-validators/bundles/ngx-phone-validators.umd.min.js'
-      },
-    ];
-    
-    this.addPackagesBundles(additionalPackages);
+  {
+    name: "google-libphonenumber",
+    path: "node_modules/google-libphonenumber/dist/libphonenumber.js"
+  },
+  {
+    name: "ngx-phone-validators",
+    path:
+      "node_modules/ngx-phone-validators/bundles/ngx-phone-validators.umd.min.js"
+  }
+];
+
+this.addPackagesBundles(additionalPackages);
 ```
 
 For AOT add
 
 ```ts
-  this.ROLLUP_NAMED_EXPORTS = [
-    ...this.ROLLUP_NAMED_EXPORTS,
-    { 'node_modules/google-libphonenumber/dist/libphonenumber.js': [ 'PhoneNumberUtil' ]}
-  ];
+this.ROLLUP_NAMED_EXPORTS = [
+  ...this.ROLLUP_NAMED_EXPORTS,
+  {
+    "node_modules/google-libphonenumber/dist/libphonenumber.js": [
+      "PhoneNumberUtil"
+    ]
+  }
+];
 ```
-
-## Creditcard validators
-
-* americanexpress
-* visa
-* dinersclub
-* discover
-* jcb
-* maestro
-* mastercard
 
 ## Install
 
@@ -62,10 +57,9 @@ For AOT add
 npm install ngx-phone-validators --save
 ```
 
-
 ## How to use [model driven]
 
-needs: ```ReactiveFormsModule```
+needs: `ReactiveFormsModule`
 
 ### Phones
 
@@ -88,32 +82,40 @@ possiblePhoneNumber: FormControl = new FormControl('', PhoneValidators.isPossibl
 
 ## How to use [template driven]
 
-needs ```FormsModule and PhoneValidatorsModule ```
+needs `FormsModule and PhoneValidatorsModule`
 
 ```ts
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { PhoneValidatorsModule } from 'ngx-phone-validators'
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule } from "@angular/forms";
+import { PhoneValidatorsModule } from "ngx-phone-validators";
 
-import { AppComponent } from './app.component';
+import { AppComponent } from "./app.component";
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, PhoneValidatorsModule],
-    declarations: [AppComponent],
-    bootstrap: [AppComponent]
+  imports: [BrowserModule, FormsModule, PhoneValidatorsModule],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}
 ```
 
 ### Phone
 
 ```html
 <form>
-<input [(ngModel)]="model.phone" name="phone" #formControl="ngModel" phone="DE">
-<span *ngIf="formControl.hasError('noValidRegionCode')">Invalid region code</span>
-<span *ngIf="formControl.hasError('noPhoneNumber')">No valid phone number</span>
+  <input
+    [(ngModel)]="model.phone"
+    name="phone"
+    #formControl="ngModel"
+    phone="DE"
+  />
+  <span *ngIf="formControl.hasError('noValidRegionCode')"
+    >Invalid region code</span
+  >
+  <span *ngIf="formControl.hasError('noPhoneNumber')"
+    >No valid phone number</span
+  >
 </form>
 ```
 
@@ -121,8 +123,15 @@ export class AppModule {
 
 ```html
 <form>
-<input [(ngModel)]="model.phone" name="phone" #formControl="ngModel" countryCode>
-<span *ngIf="formControl.hasError('noValidRegionCode')">Invalid region code</span>
+  <input
+    [(ngModel)]="model.phone"
+    name="phone"
+    #formControl="ngModel"
+    countryCode
+  />
+  <span *ngIf="formControl.hasError('noValidRegionCode')"
+    >Invalid region code</span
+  >
 </form>
 ```
 
@@ -130,13 +139,25 @@ export class AppModule {
 
 ```html
 <form>
-<input [(ngModel)]="model.phone" name="phone" #formControl="ngModel" possiblePhone="DE">
-<span *ngIf="formControl.hasError('noValidRegionCode')">Invalid region code</span>
-<span *ngIf="formControl.hasError('noPhoneNumber')">No valid phone number</span>
-<span *ngIf="formControl.hasError('phoneNumberTooLong')">Phone number too long</span>
-<span *ngIf="formControl.hasError('phoneNumberTooShort')">Phone number too short</span>
+  <input
+    [(ngModel)]="model.phone"
+    name="phone"
+    #formControl="ngModel"
+    possiblePhone="DE"
+  />
+  <span *ngIf="formControl.hasError('noValidRegionCode')"
+    >Invalid region code</span
+  >
+  <span *ngIf="formControl.hasError('noPhoneNumber')"
+    >No valid phone number</span
+  >
+  <span *ngIf="formControl.hasError('phoneNumberTooLong')"
+    >Phone number too long</span
+  >
+  <span *ngIf="formControl.hasError('phoneNumberTooShort')"
+    >Phone number too short</span
+  >
 </form>
 ```
-
 
 Get the complete changelog here: https://github.com/Nightapes/ngx-phone-validators/releases
