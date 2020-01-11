@@ -1,8 +1,6 @@
 # ngx-phone-validators
 
-[![Build Status](https://travis-ci.org/Nightapes/ngx-phone-validators.svg?branch=master)](https://travis-ci.org/Nightapes/ngx-phone-validators.svg?branch=master)
 [![npm](https://david-dm.org/nightapes/ngx-phone-validators.svg)](https://david-dm.org/nightapes/ngx-phone-validators)
-[![npm-dev](https://david-dm.org/nightapes/ngx-phone-validators/dev-status.svg)](https://david-dm.org/nightapes/ngx-phone-validators/?type=dev)
 
 An implementation of various angular validators for Angular 2+.
 
