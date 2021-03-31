@@ -15,6 +15,6 @@ hooks:
     - yarn publish dist
     - rm ~/.npmrc
     - cat package.json | jq '.name = "@Nightapes/ngx-phone-validators"' >> package2.json && mv package2.json package.json
-    - yarn config set registry https://npm.pkg.github.com
-    - echo "//npm.pkg.github.com:_authToken=$GITHUB_PAT" >> ~/.npmrc
+    - yarn config set registry https://npm.pkg.github.com/
+    - echo "//npm.pkg.github.com/:_authToken=$GITHUB_PAT" >> ~/.npmrc
     - yarn publish dist
