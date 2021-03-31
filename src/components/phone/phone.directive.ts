@@ -4,7 +4,7 @@ import {
   Validator,
   ValidatorFn,
   AbstractControl,
-  ValidationErrors
+  ValidationErrors,
 } from "@angular/forms";
 
 import { PhoneValidators } from "./phone-validators";
@@ -17,16 +17,16 @@ import { PhoneValidators } from "./phone-validators";
       provide: NG_VALIDATORS,
       // tslint:disable-next-line:no-forward-ref
       useExisting: forwardRef(() => PossiblePhoneValidatorDirective),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class PossiblePhoneValidatorDirective implements Validator, OnInit {
   @Input() possiblePhone = "US";
 
   private validator: ValidatorFn;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.validator = PhoneValidators.isPossibleNumberWithReason(
       this.possiblePhone
     );
@@ -44,16 +44,16 @@ export class PossiblePhoneValidatorDirective implements Validator, OnInit {
       provide: NG_VALIDATORS,
       // tslint:disable-next-line:no-forward-ref
       useExisting: forwardRef(() => PhoneValidatorDirective),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class PhoneValidatorDirective implements Validator, OnInit {
   @Input() phone = "US";
 
   private validator: ValidatorFn;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.validator = PhoneValidators.isPhoneNumber(this.phone);
   }
 
@@ -70,14 +70,14 @@ export class PhoneValidatorDirective implements Validator, OnInit {
       provide: NG_VALIDATORS,
       // tslint:disable-next-line:no-forward-ref
       useExisting: forwardRef(() => CountryCodeValidatorDirective),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class CountryCodeValidatorDirective implements Validator, OnInit {
   private validator: ValidatorFn;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.validator = PhoneValidators.isValidRegionCode;
   }
 

@@ -3,11 +3,13 @@ github:
   repo: "ngx-phone-validators"
   user: "nightapes"
 commitFormat: angular
+integrations:
+  npm:
+    enabled: true
 branch:
   master: release
 hooks:
   preRelease:
-    - yarn version --new-version $(./go-semantic-release next)
     - yarn build
     - echo //registry.npmjs.org/:_authToken=$NPM_TOKEN >> ~/.npmrc
     - yarn publish dist

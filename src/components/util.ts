@@ -9,8 +9,8 @@ export class Util {
     return value !== "" ? false : true;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  static addError(control: AbstractControl, errorId: string, value: any) {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types,@typescript-eslint/no-explicit-any
+  static addError(control: AbstractControl, errorId: string, value: any): void {
     if (!control.errors) {
       control.setErrors({ [errorId]: value });
     } else if (!control.hasError(errorId)) {
@@ -18,7 +18,7 @@ export class Util {
     }
   }
 
-  static removeError(control: AbstractControl, errorId: string) {
+  static removeError(control: AbstractControl, errorId: string): void {
     if (control.errors && control.hasError(errorId)) {
       delete control.errors[errorId];
     }
