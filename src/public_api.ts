@@ -5,7 +5,7 @@ export { PhoneValidators } from "./components/phone/phone-validators";
 export {
   PhoneValidatorDirective,
   CountryCodeValidatorDirective,
-  PossiblePhoneValidatorDirective
+  PossiblePhoneValidatorDirective,
 } from "./components/phone/phone.directive";
 
 //Module
